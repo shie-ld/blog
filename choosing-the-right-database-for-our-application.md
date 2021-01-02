@@ -3,7 +3,6 @@
 
 Making those database decisions a little easier and a little wiser
 
-![](https://cdn-images-1.medium.com/max/2000/0*O8b6zYRF0d19zkCi)
 
 Working on new projects is always super exciting — we have the freedom to design and architect the things any way we want. But this planning, when not done properly, can cause us a lot of pain in the future.
 
@@ -192,11 +191,15 @@ We’re not done! There’s so much more to learn different databases, but I hop
 ## More Reads About Databases
 [**Types of databases**
 *Depending upon the usage requirements, there are following types of databases available in the market − Let us explain…*www.tutorialspoint.com](https://www.tutorialspoint.com/Types-of-databases)
+
 [**Full-Text Search in your Database: Algolia vs Elasticsearch | Algolia Blog**
 *Most applications and websites are built on top of a database. It can be a traditional relational database like MySQL…*www.algolia.com](https://www.algolia.com/blog/full-text-search-in-your-database-algolia-versus-elasticsearch/)
+
 [**Implementing the Netflix Media Database**
 *In the previous blog posts in this series, we introduced the Netflix Media DataBase (NMDB) and its salient “Media…*netflixtechblog.com](https://netflixtechblog.com/implementing-the-netflix-media-database-53b5a840b42a)
+
 [**Should You Use AWS or Firebase for the Back End of Your Mobile App?**
 *Which is the right solution for your requirements?*medium.com](https://medium.com/better-programming/should-you-use-aws-or-firebase-for-the-back-end-of-your-mobile-app-a28f93540520)
+
 
 Thanks for reading. Have a good one!
