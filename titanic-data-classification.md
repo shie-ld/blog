@@ -739,10 +739,3 @@ In the exploratory section, I analyzed the case of a single categorical variable
 An important note is that I haven’t covered what happens after your model is approved for deployment. Just keep in mind that you need to build a pipeline to automatically process new data that you will get periodically.
 
 Now that you know how to approach a data science use case, you can apply this code and method to any kind of binary classification problem, carry out your own analysis, build your own model and even explain it.
-> This article is part of the series **Machine Learning with Python**, see also:
-[**Machine Learning with Python: Regression (complete tutorial)**
-*Data Analysis & Visualization, Feature Engineering & Selection, Model Design & Testing, Evaluation & Explainability*towardsdatascience.com](https://towardsdatascience.com/machine-learning-with-python-regression-complete-tutorial-47268e546cea)
-
-[**Clustering Geospatial Data**
-*Plot Machine Learning & Deep Learning Clustering with interactive Maps*towardsdatascience.com](https://towardsdatascience.com/clustering-geospatial-data-f0584f0b04ec)
-
