@@ -742,7 +742,7 @@ Now that you know how to approach a data science use case, you can apply this co
 > This article is part of the series **Machine Learning with Python**, see also:
 [**Machine Learning with Python: Regression (complete tutorial)**
 *Data Analysis & Visualization, Feature Engineering & Selection, Model Design & Testing, Evaluation & Explainability*towardsdatascience.com](https://towardsdatascience.com/machine-learning-with-python-regression-complete-tutorial-47268e546cea)
+
 [**Clustering Geospatial Data**
 *Plot Machine Learning & Deep Learning Clustering with interactive Maps*towardsdatascience.com](https://towardsdatascience.com/clustering-geospatial-data-f0584f0b04ec)
 
-Contacts: [LinkedIn](https://www.linkedin.com/in/mauro-di-pietro-56a1366b/) | [Twitter](https://twitter.com/maurodp90?lang=en)
