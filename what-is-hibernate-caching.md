@@ -9,7 +9,6 @@ In this article, we will take a look at Hibernate caching, and also will get an 
 
 In general, caching is a mechanism to store copies of data or files in such a manner so that they can be served quickly. In computer science caching is related to hardware or software component that stores data so that future requests for that data can be served faster; the data stored in a cache might be the result of an earlier computation or a copy of data stored elsewhere. — [Wiki](https://en.wikipedia.org/wiki/Cache_(computing))
 
-![Photo by [Art Wall - Kittenprint](https://unsplash.com/@artwall_hd?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11232/0*sDfWCU4zzIIDKQin)*Photo by [Art Wall - Kittenprint](https://unsplash.com/@artwall_hd?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 If we are talking about database cache then caching will act as a buffered memory that remains between the application and the database. It stores recently demanded/inquired data in system memory to reduce the numbers of calls to the actual database.
 
@@ -35,7 +34,28 @@ Let’s make it simple to understand, As we all know that hibernate is an ORM to
 
 So when you query an entity or object, for the very first time it is retrieved from the database and stored in the first-level cache (associated with the hibernate session). If we query for the same entity or object again with the same session object, it will be loaded from cache and no SQL query will be executed. Take a look at the below code snippet.
 
-<iframe src="https://medium.com/media/499f1c35f20d73d87b6e31bf267374da" frameborder=0></iframe>
+```sh
+// We have one record in DB with the Employee details like, 101, John Doe, UK
+
+// Open hibernate session
+Session session = HibernateUtil.getSessionFactory().openSession();
+session.beginTransaction();
+
+// Fetch an Employee entity from the database very first time
+Employee employee = (Employee) session.load(Employee.class, empId);
+System.out.println("First call output : " + employee.getName());
+ 
+// Request for Employee entity again
+employee = (Employee) session.load(Employee.class, empId);
+System.out.println("Second call output : "employee.getName());
+ 
+session.getTransaction().commit();
+HibernateUtil.shutdown();
+ 
+// Output:
+// First call output : John Doe
+// Second call output : John Doe
+```
 
 In the above example hibernate will fire query only a single time to the Database. From the second time onwards it will return only from the session object.
 
@@ -56,7 +76,38 @@ The second-level cache is ***by default disabled, ***the developer needs to enab
 
 Let’s take an example: Suppose your application has 2 active sessions session1 and session2 respectively. Now, session1 has requested data having id=101 so that will be fetched from a database as it is the first call, and then it is stored into the second-level (SessionFactory) as well the first-level (session) cache also. Now, session2 requires the same data so it has also been queried with the same id=101. So this time session2 will get data from the SessionFactory, it will not going to hit the database. Take a look at the below code snippet.
 
-<iframe src="https://medium.com/media/37bb1b2bc299cf590d5a4b330dfe2dbe" frameborder=0></iframe>
+```sh
+// Open hibernate session
+Session session = HibernateUtil.getSessionFactory().openSession();
+session.beginTransaction();
+
+// Employee entity is fecthed very first time (It will be cached in both first-level and second-level cache)
+Employee employee = (Employee) session.load(Employee.class, empId);
+System.out.println(employee.getName());
+
+// Fetch the employee entity again
+employee = (Employee) session.load(Employee.class, empId);
+System.out.println(employee.getName()); //It will return from the first-level
+
+// Evict from first level cache (That will remove employee object from first-level cache)
+session.evict(employee);
+
+// Fetch same entity again using same session
+employee = (Employee) session.load(Employee.class, empId);
+System.out.println(employee.getName()); //It will return from the second-level
+
+// Fetch same entity again using another session
+employee = (Employee) anotherSession.load(Employee.class, empId);
+System.out.println(employee.getName());//It will return from the second-level
+
+System.out.println("Response from the first-level : " + HibernateUtil.getSessionFactory().getStatistics().getEntityFetchCount());
+System.out.println("Response from the second-level : " + HibernateUtil.getSessionFactory().getStatistics().getSecondLevelCacheHitCount());
+ 
+// Output:
+// Response from the first-level : 1
+// Response from the second-level : 2
+
+```
 
 As you can find in the above snippet that you got a response from the second-level cache when an object is evicted from the first-level cache.
 
