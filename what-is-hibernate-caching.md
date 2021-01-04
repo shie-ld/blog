@@ -68,4 +68,4 @@ As you can find in the above snippet that you got a response from the second-lev
 
 In the Hibernate session is the hibernate’s first-level cache and SessionFactory is a second-level cache. So both (session/session-factory) are objects in a heap area. That means the cache is stored in the RAM only. And because of that, it gives faster access to data rather than databases.
 
-Hope you guys enjoyed this, stay tuned.*
+Hope you guys enjoyed reading this, stay tuned.*
