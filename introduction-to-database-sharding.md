@@ -82,6 +82,6 @@ The advantage of this technique is that the client doesn’t know any logic abou
 
 ## Conclusion
 
-Sharding can be a great solution for a database with a large amount of data. It helps to split the load from a single node to multiple nodes. But, it adds a lot of complexity to the application.
+Sharding can be a great solution for a database with a large amount of data. It helps to split the load from a single node to multiple nodes. But it adds a lot of complexity to the application.
 
 Sharding can be necessary in some cases, but one need to exhaust other options like adding caching or migrating to a larger server before adding sharding as the time to create and the maintenance costs might outweigh the benefits of sharding.
