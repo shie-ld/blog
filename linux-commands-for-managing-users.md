@@ -114,7 +114,7 @@ We have already used the command we will look at now, but I didn’t really expl
 
 If you can’t run commands as the root user, you will be notified via the terminal that you cannot run sudo on the system.
 
-To run elevated commands, use the sudo command followed by the elevated command you want to run. For example, to add a user, you can do this:
+To run elevated commands, use the sudo command followed by the elevated command you want to run with superuser privileges. For example, to add a user, you can do this:
 
     $ sudo useradd newuser
 
